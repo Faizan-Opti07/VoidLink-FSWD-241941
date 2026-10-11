@@ -1,0 +1,975 @@
+/* ==========================================================================
+   VACUUM IN THE VOID - COSMIC SINGULARITY & ORBITAL SATELLITE SYSTEM
+   High-Fidelity Event Horizon, Relativistic Accretion Flow & Orbiting Station
+   Exact Implementation from User Project (Voidlink_ConnecFriend)
+   ========================================================================== */
+
+/* Realistic cosmic scene: layered hot accretion flow, lensing halo and orbiting station */
+.blackhole-stage {
+  height: clamp(300px, 34vw, 420px);
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  max-width: 490px;
+  isolation: isolate;
+  overflow: visible;
+  user-select: none;
+}
+
+.blackhole-stage::before {
+  content: "";
+  position: absolute;
+  width: 130%;
+  height: 95%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--void-accent, #f43f5e) 28%, transparent) 0%, color-mix(in srgb, var(--void-accent, #f43f5e) 12%, transparent) 42%, transparent 72%);
+  filter: blur(28px);
+  pointer-events: none;
+  animation: cosmicPulse 6s ease-in-out infinite alternate;
+}
+
+.blackhole-stage::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 76%;
+  height: 25%;
+  border: 2px solid color-mix(in srgb, var(--void-accent, #f43f5e) 75%, transparent);
+  border-radius: 50%;
+  transform: rotate(-18deg) skewX(-24deg);
+  filter: blur(2px);
+  box-shadow: 0 0 25px var(--accent-glow, rgba(244, 63, 94, 0.45));
+  animation: lensingFlicker 3.8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Event Horizon Core */
+.event-horizon {
+  width: clamp(130px, 17vw, 195px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  background: radial-gradient(circle at 50% 50%, #000000 0 57%, #020204 63%, #08080c 70%, transparent 73%);
+  box-shadow: 
+    0 0 0 2px #020203,
+    0 0 25px 9px #000000,
+    0 0 70px 13px #000000,
+    0 0 105px 16px color-mix(in srgb, var(--void-accent, #f43f5e) 24%, transparent);
+  z-index: 3;
+  display: grid;
+  place-items: center;
+}
+
+.horizon-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #000000 0 53%, #010102 60%, #000000 70%);
+  box-shadow: 0 0 0 8px #000000, 0 0 18px 8px #000000, inset 0 0 25px #000000;
+}
+
+/* Relativistic Accretion Flow - Glowing Revolving Energy Streams Throwing Out Light */
+.accretion {
+  position: absolute;
+  width: 125%;
+  height: 40%;
+  border-radius: 50%;
+  border: 0;
+  transform: rotate(-17deg) skewX(-20deg);
+  filter: blur(0.6px);
+  mask-image: radial-gradient(ellipse, transparent 0 27%, #000000 32% 48%, transparent 64%);
+  -webkit-mask-image: radial-gradient(ellipse, transparent 0 27%, #000000 32% 48%, transparent 64%);
+  pointer-events: none;
+}
+
+.accretion-back {
+  background: conic-gradient(
+    from 10deg,
+    transparent 0 7%,
+    #ffffff 10%,
+    var(--void-accent, #f43f5e) 18%,
+    transparent 25% 36%,
+    var(--accent-soft, #fbbf24) 41%,
+    #ffffff 47%,
+    transparent 54% 66%,
+    var(--void-accent, #f43f5e) 71%,
+    var(--accent-soft, #fb7185) 81%,
+    transparent 90%
+  );
+  box-shadow: 0 0 25px color-mix(in srgb, var(--void-accent, #f43f5e) 85%, transparent), 0 0 55px var(--accent-glow, rgba(244, 63, 94, 0.5));
+  animation: cosmicSpin 11s linear infinite;
+  z-index: 2;
+}
+
+.accretion-front {
+  width: 115%;
+  height: 33%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 0 8%,
+    #ffffff 12%,
+    var(--void-accent, #f43f5e) 22%,
+    transparent 31% 48%,
+    var(--accent-soft, #fbbf24) 55%,
+    var(--void-accent, #f43f5e) 63%,
+    transparent 72% 85%,
+    #ffffff 92%,
+    transparent
+  );
+  mask-image: radial-gradient(ellipse, transparent 0 29%, #000000 34% 45%, transparent 59%);
+  -webkit-mask-image: radial-gradient(ellipse, transparent 0 29%, #000000 34% 45%, transparent 59%);
+  filter: blur(0.35px);
+  box-shadow: 0 0 28px var(--accent-glow, rgba(244, 63, 94, 0.65)), 0 0 65px color-mix(in srgb, var(--void-accent, #f43f5e) 40%, transparent);
+  animation: cosmicCounterSpin 8s linear infinite;
+  z-index: 4;
+}
+
+/* Orbital Trajectory Lines */
+.orbit {
+  position: absolute;
+  border: 1px solid color-mix(in srgb, var(--void-accent, #f43f5e) 45%, rgba(200, 160, 130, 0.25));
+  border-radius: 50%;
+  width: 75%;
+  height: 53%;
+  transform: rotate(-22deg);
+  pointer-events: none;
+}
+
+.orbit-one {
+  animation: cosmicSpin 30s linear infinite;
+}
+
+.orbit-two {
+  width: 110%;
+  height: 70%;
+  border-color: color-mix(in srgb, var(--void-accent, #f43f5e) 30%, rgba(196, 196, 206, 0.12));
+  transform: rotate(45deg);
+  animation: cosmicCounterSpin 40s linear infinite;
+}
+
+/* Cosmic Drift Stars */
+.star-drift {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #e8d6c1;
+  box-shadow: 0 0 12px #e8d6c1;
+  animation: starFloat 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.star-drift-one {
+  left: 15%;
+  top: 28%;
+}
+
+.star-drift-two {
+  right: 14%;
+  bottom: 27%;
+  animation-delay: 1.4s;
+}
+
+/* ==========================================================================
+   ANIMATED MODULAR ORBITAL STATION (SATELLITE)
+   ========================================================================== */
+.void-station {
+  position: absolute;
+  width: 160px;
+  height: 110px;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 0 13px color-mix(in srgb, var(--void-accent, #f43f5e) 50%, transparent));
+  animation: stationDrift 7s ease-in-out infinite;
+}
+
+.void-station-entry {
+  right: -2%;
+  top: 7%;
+  transform: scale(0.9);
+}
+
+.void-station-app {
+  right: 2%;
+  top: 8%;
+  transform: scale(0.88);
+}
+
+.station-orbit {
+  position: absolute;
+  inset: 8% 1%;
+  border: 1px solid color-mix(in srgb, var(--void-accent, #f43f5e) 55%, transparent);
+  border-radius: 50%;
+  transform: rotate(-24deg);
+  animation: stationOrbit 11s linear infinite;
+}
+
+.station-core {
+  position: absolute;
+  left: 42%;
+  top: 39%;
+  width: 24%;
+  height: 22%;
+  border-radius: 35%;
+  background: linear-gradient(135deg, #dfe9f5, #69798f 45%, #252c3c 65%, var(--void-accent, #f43f5e));
+  border: 1px solid rgba(244, 244, 255, 0.6);
+  box-shadow: 0 0 14px var(--accent-glow, rgba(244, 63, 94, 0.45));
+}
+
+.station-module {
+  position: absolute;
+  top: 41%;
+  width: 19%;
+  height: 18%;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #b6c7d9, #35445a 48%, #111722);
+  border: 1px solid rgba(198, 210, 227, 0.65);
+}
+
+.station-module-a {
+  left: 24%;
+}
+
+.station-module-b {
+  right: 23%;
+}
+
+.station-solar {
+  position: absolute;
+  top: 31%;
+  width: 22%;
+  height: 35%;
+  background: repeating-linear-gradient(90deg, #243d70 0 5px, #7c9ac8 6px 7px, #18294c 8px 10px);
+  border: 1px solid #8ea9df;
+  box-shadow: inset 0 0 8px rgba(107, 156, 255, 0.35);
+}
+
+.station-solar-a {
+  left: 0;
+  transform: skewY(-12deg);
+}
+
+.station-solar-b {
+  right: 0;
+  transform: skewY(12deg);
+}
+
+.station-light {
+  position: absolute;
+  left: 49%;
+  top: 44%;
+  width: 5px;
+  height: 5px;
+  background: #f6f7ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 4px #b9d7ff, 0 0 20px var(--accent-glow, rgba(244, 63, 94, 0.45));
+  animation: stationBlink 1.8s ease-in-out infinite alternate;
+}
+
+/* Event Horizon Caption */
+.hole-caption {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 8px;
+  letter-spacing: 1.6px;
+  color: #a0a2ad;
+  z-index: 5;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.hole-caption i {
+  width: 3px;
+  height: 3px;
+  background: var(--void-accent, #f43f5e);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--void-accent, #f43f5e);
+}
+
+/* ==========================================================================
+   PERSISTENT IN-APP AMBIENT SINGULARITY VIEWPORT (Always Inside the App)
+   ========================================================================== */
+.ambient-singularity-viewport {
+  position: fixed;
+  right: clamp(15px, 4vw, 90px);
+  top: clamp(80px, 14vh, 180px);
+  width: clamp(280px, 32vw, 440px);
+  aspect-ratio: 1;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.58;
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+  filter: drop-shadow(0 0 60px rgba(0, 0, 0, 0.95)) saturate(1.35);
+  mix-blend-mode: screen;
+}
+
+.ambient-singularity-viewport .blackhole-stage {
+  transform: scale(0.85);
+  transform-origin: center center;
+}
+
+/* When user activates focus mode (via Singularity toggle or Expand View) */
+.ambient-singularity-viewport.focused {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  background: rgba(3, 3, 6, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  pointer-events: auto;
+  opacity: 1;
+  filter: none;
+  mix-blend-mode: normal;
+  cursor: pointer;
+}
+
+.ambient-singularity-viewport.focused .blackhole-stage {
+  transform: scale(1.3);
+}
+
+.ambient-singularity-viewport.focused::after {
+  content: "CLICK ANYWHERE TO EXIT OBSERVATIONAL FOCUS";
+  position: absolute;
+  bottom: 28px;
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--void-accent, #f43f5e);
+  text-shadow: 0 0 12px var(--accent-glow, rgba(244, 63, 94, 0.5));
+  animation: stationBlink 2s ease-in-out infinite alternate;
+}
+
+/* Mobile responsive scaling */
+@media (max-width: 1024px) {
+  .ambient-singularity-viewport {
+    opacity: 0.32;
+    transform: scale(0.75);
+    right: -20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ambient-singularity-viewport {
+    opacity: 0.22;
+    transform: scale(0.6);
+    right: -50px;
+  }
+}
+
+/* ==========================================================================
+   MINI-HUD BLACK HOLE CARD (For Sidebar / Dashboard Display)
+   ========================================================================== */
+.mini-blackhole-stage-wrapper {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: radial-gradient(circle at center, #090912 0%, #030305 80%, #000000 100%);
+}
+
+.mini-blackhole-stage-wrapper .blackhole-stage {
+  transform: scale(0.55);
+  transform-origin: center center;
+  height: 380px;
+  width: 440px;
+}
+
+/* ==========================================================================
+   AESTHETIC PILL NAVIGATION (Matching User Screenshot 2)
+   ========================================================================== */
+.aesthetic-nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: rgba(14, 14, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  font-family: var(--sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .aesthetic-nav-pill {
+    padding: 6px 10px;
+    font-size: 11px;
+    gap: 5px;
+  }
+}
+
+.aesthetic-nav-pill:hover {
+  background: rgba(22, 22, 35, 0.9);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.aesthetic-nav-pill.active {
+  background: color-mix(in srgb, var(--void-accent, #f43f5e) 14%, rgba(14, 14, 22, 0.95));
+  border-color: color-mix(in srgb, var(--void-accent, #f43f5e) 65%, transparent);
+  color: #ffffff;
+  box-shadow: 0 0 20px color-mix(in srgb, var(--void-accent, #f43f5e) 22%, transparent), inset 0 0 12px color-mix(in srgb, var(--void-accent, #f43f5e) 10%, transparent);
+}
+
+.aesthetic-nav-pill.active i {
+  color: var(--void-accent, #f43f5e);
+  filter: drop-shadow(0 0 8px var(--void-accent, #f43f5e));
+}
+
+.aesthetic-nav-badge {
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 2px 7px;
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 10px;
+  font-weight: 700;
+  color: #cbd5e1;
+}
+
+.aesthetic-nav-pill.active .aesthetic-nav-badge {
+  background: color-mix(in srgb, var(--void-accent, #f43f5e) 25%, transparent);
+  border-color: color-mix(in srgb, var(--void-accent, #f43f5e) 40%, transparent);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes cosmicSpin {
+  0% { transform: rotate(-17deg) skewX(-20deg); }
+  100% { transform: rotate(343deg) skewX(-20deg); }
+}
+
+@keyframes cosmicCounterSpin {
+  0% { transform: rotate(-17deg) skewX(-20deg); }
+  100% { transform: rotate(-377deg) skewX(-20deg); }
+}
+
+@keyframes cosmicPulse {
+  0% { transform: scale(0.93); opacity: 0.6; }
+  100% { transform: scale(1.08); opacity: 0.95; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes counterSpin {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes starFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+@keyframes lensingFlicker {
+  from { opacity: 0.35; transform: rotate(-18deg) skewX(-24deg) scale(0.97); }
+  to { opacity: 0.9; transform: rotate(-18deg) skewX(-24deg) scale(1.04); }
+}
+
+@keyframes stationDrift {
+  0%, 100% { transform: translate(0, 0) rotate(-2deg); }
+  50% { transform: translate(8px, -12px) rotate(3deg); }
+}
+
+@keyframes stationOrbit {
+  to { transform: rotate(336deg); }
+}
+
+@keyframes stationBlink {
+  from { opacity: 0.35; }
+  to { opacity: 1; }
+}
+
+/* ==========================================================================
+   MASSIVE EMITTING AMBIENT COSMIC HALO (Energy radiating from Singularity)
+   ========================================================================== */
+.ambient-blackhole {
+  position: absolute;
+  z-index: 0;
+  right: clamp(-180px, 3vw, 20px);
+  top: 40%;
+  width: clamp(380px, 52vw, 840px);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.38;
+  isolation: isolate;
+  filter: saturate(1.25);
+  mix-blend-mode: screen;
+}
+
+.ambient-blackhole::before {
+  content: "";
+  position: absolute;
+  inset: 7%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, #000 0 22%, transparent 23% 32%, color-mix(in srgb, var(--void-accent, #f43f5e) 90%, transparent) 34%, transparent 38% 42%, color-mix(in srgb, var(--accent-soft, #b5263c) 92%, transparent) 47%, transparent 52% 58%, color-mix(in srgb, var(--void-accent, #f43f5e) 82%, transparent) 62%, transparent 70%),
+              conic-gradient(from 0deg, transparent 0 5%, var(--void-accent, #f43f5e) 10%, transparent 17% 26%, var(--accent-soft, #b5263c) 34%, transparent 43% 57%, var(--void-accent, #f43f5e) 65%, transparent 73% 86%, var(--accent-soft, #b5263c) 94%, transparent);
+  filter: blur(2px);
+  animation: ambientOrbit 13s linear infinite;
+}
+
+.ambient-blackhole::after {
+  content: "";
+  position: absolute;
+  inset: 31%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #000 0 55%, #030306 66%, transparent 72%);
+  box-shadow: 0 0 35px 14px #000, 0 0 95px 26px var(--accent-glow, rgba(244, 63, 94, 0.45)), 0 0 170px 35px color-mix(in srgb, var(--void-accent, #f43f5e) 25%, transparent), inset 0 0 42px #000;
+}
+
+.ambient-blackhole span {
+  position: absolute;
+  inset: 5%;
+  border: 2px solid var(--accent-glow, rgba(244, 63, 94, 0.45));
+  border-radius: 50%;
+  box-shadow: 0 0 30px var(--accent-glow, rgba(244, 63, 94, 0.45));
+  transform: rotateX(68deg) rotate(-18deg);
+  animation: ambientPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes ambientOrbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ambientPulse {
+  from { transform: scale(0.88); opacity: 0.45; }
+  to { transform: scale(1.08); opacity: 1; }
+}
+
+/* ==========================================================================
+   PROMINENT POWER BUTTON (DIVE INTO HORIZON / ENTER THE VOID)
+   ========================================================================== */
+.power-entry {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--void-accent, #f43f5e) 90%, white), var(--void-accent, #f43f5e));
+  border: 1px solid color-mix(in srgb, var(--void-accent, #f43f5e) 70%, white);
+  border-radius: 14px;
+  box-shadow: 0 0 25px var(--accent-glow, rgba(244, 63, 94, 0.45)), inset 0 1px rgba(255, 255, 255, 0.4);
+  color: #08090b;
+  letter-spacing: 1.2px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.power-entry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px var(--accent-glow, rgba(244, 63, 94, 0.65)), 0 8px 30px rgba(0,0,0,0.4);
+}
+
+.power-entry .power-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(8, 9, 11, 0.4);
+  border-radius: 50%;
+  font-size: 20px;
+  box-shadow: 0 0 0 4px rgba(8, 9, 11, 0.1), 0 0 22px rgba(255, 255, 255, 0.5);
+  animation: powerBreath 2.2s ease-in-out infinite;
+}
+
+.power-entry > span:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  font-size: 13px;
+  line-height: 1.1;
+}
+
+.power-entry small {
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 8px;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
+@keyframes powerBreath {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); box-shadow: 0 0 0 7px rgba(8, 9, 11, 0.15), 0 0 28px #fff; }
+}
+
+/* ==========================================================================
+   ENTRY PAGE LAYOUT (Matching Voidlink Pictures 1 & 2)
+   ========================================================================== */
+.entry-page {
+  overflow-x: hidden;
+  background: radial-gradient(ellipse at 75% 45%, color-mix(in srgb, var(--void-accent, #ff5a62) 14%, #08090b) 0, #0d0e11 32%, #08090b 70%);
+}
+
+.entry-shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 24px clamp(20px, 4.5vw, 72px) 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.entry-topline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #d0d0d4;
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 9px;
+  letter-spacing: 1.8px;
+}
+
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #e9d6c3;
+  font-size: 14px;
+  box-shadow: 0 0 20px var(--accent-glow, rgba(244, 63, 94, 0.3));
+}
+
+.topline-divider {
+  color: #555;
+}
+
+.status-pill {
+  font-size: 8px;
+  color: #777b83;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.status-pill span {
+  width: 6px;
+  height: 6px;
+  background: #a6cbb0;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #a6cbb0;
+  display: inline-block;
+}
+
+.entry-grid {
+  flex: 1;
+  min-height: 650px;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.entry-copy {
+  padding: 30px clamp(10px, 4vw, 60px) 30px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow-line {
+  display: inline-block;
+  width: 27px;
+  height: 1px;
+  background: var(--void-accent, #c7a98a);
+  vertical-align: middle;
+  margin-right: 9px;
+}
+
+.entry-copy h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(44px, 6.4vw, 86px);
+  line-height: 1.05;
+  letter-spacing: -3px;
+  font-weight: 700;
+  margin: 22px 0 18px;
+  color: #ffffff;
+}
+
+.entry-copy h1 em {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--void-accent, #ff5a62);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.entry-subtitle {
+  max-width: 410px;
+  color: #9b9ca4;
+  line-height: 1.85;
+  font-size: 13px;
+}
+
+.entry-stat-row {
+  display: flex;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.entry-stat-row div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.entry-stat-row strong {
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 13px;
+  color: var(--void-accent, #d4c0a8);
+}
+
+.entry-stat-row span {
+  font-size: 11px;
+  color: #8c8e96;
+}
+
+.login-panel {
+  padding: 24px 26px 22px;
+  position: relative;
+  z-index: 5;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: linear-gradient(145deg, rgba(24, 25, 29, 0.92), rgba(13, 14, 17, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+}
+
+.panel-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 8px;
+  letter-spacing: 1.8px;
+  color: #8c8e96;
+}
+
+.panel-kicker i {
+  color: var(--void-accent, #c6a783);
+  font-size: 12px;
+}
+
+.login-panel h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 18px 0 4px;
+  color: #ffffff;
+}
+
+.login-panel .muted-copy {
+  font-size: 11px;
+  color: #8c8e96;
+  margin-bottom: 18px;
+}
+
+.entry-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #686a73;
+}
+
+/* ==========================================================================
+   SHINY VIBRATING BLACK HOLE (Functional Brand Singularity Core)
+   Matching User Screenshot: Glowing golden ring, deep black void, vibrating core
+   ========================================================================== */
+.shiny-blackhole-icon-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.shiny-blackhole-vibrating {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #020205;
+  box-shadow: 
+    0 0 0 2px color-mix(in srgb, var(--void-accent, #fbbf24) 85%, white 15%),
+    0 0 16px color-mix(in srgb, var(--void-accent, #fbbf24) 75%, transparent),
+    inset 0 0 12px #000000;
+  animation: blackholeVibrate 0.14s linear infinite alternate, blackholeBreath 3.2s ease-in-out infinite alternate;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.shiny-blackhole-vibrating:hover {
+  transform: scale(1.14);
+  box-shadow: 
+    0 0 0 2.5px #ffffff,
+    0 0 28px var(--void-accent, #fbbf24),
+    0 0 50px var(--accent-glow, rgba(251, 191, 36, 0.75)),
+    inset 0 0 15px #000000;
+}
+
+.shiny-blackhole-vibrating:active,
+.shiny-blackhole-vibrating.pulse-active {
+  animation: blackholeSuperVibrate 0.06s linear infinite alternate;
+  transform: scale(1.22);
+}
+
+/* Outer corona flare ring */
+.shiny-blackhole-corona {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--void-accent, #fbbf24) 65%, transparent);
+  pointer-events: none;
+  animation: spin 8s linear infinite;
+}
+
+/* Deep Event Horizon Core */
+.shiny-horizon-void {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #09090e 0%, #000000 70%);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.18),
+    inset 0 0 9px #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Vibrating Singularity Core Dot */
+.shiny-singularity-core {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fffdf0 0%, var(--void-accent, #fbbf24) 55%, var(--accent-soft, #f59e0b) 100%);
+  box-shadow: 
+    0 0 8px 2px var(--void-accent, #fbbf24),
+    0 0 18px var(--accent-glow, rgba(251, 191, 36, 0.85));
+  animation: coreGlowPulse 1.6s ease-in-out infinite alternate;
+}
+
+.shiny-photon-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-glow, rgba(251, 191, 36, 0.3));
+  opacity: 0.6;
+  animation: photonPulseWave 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+/* High-frequency Vibration Keyframes */
+@keyframes blackholeVibrate {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-0.4px, 0.5px) rotate(-0.5deg); }
+  50% { transform: translate(0.5px, -0.4px) rotate(0.4deg); }
+  75% { transform: translate(-0.4px, -0.5px) rotate(0.3deg); }
+  100% { transform: translate(0.5px, 0.4px) rotate(-0.4deg); }
+}
+
+@keyframes blackholeSuperVibrate {
+  0% { transform: scale(1.22) translate(-1px, 1px) rotate(-1deg); }
+  50% { transform: scale(1.24) translate(1px, -1px) rotate(1deg); }
+  100% { transform: scale(1.22) translate(-1px, -1px) rotate(0deg); }
+}
+
+@keyframes blackholeBreath {
+  from { filter: drop-shadow(0 0 7px var(--accent-glow, rgba(251, 191, 36, 0.4))); }
+  to { filter: drop-shadow(0 0 19px var(--accent-glow, rgba(251, 191, 36, 0.85))); }
+}
+
+@keyframes coreGlowPulse {
+  from { transform: scale(0.85); opacity: 0.85; }
+  to { transform: scale(1.18); opacity: 1; }
+}
+
+@keyframes photonPulseWave {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ==========================================================================
+   HORIZON OBSERVATIONAL THEME QUICKBAR (Inside Singularity Horizon)
+   ========================================================================== */
+.horizon-theme-quickbar {
+  display: none;
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(12, 12, 20, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  padding: 8px 18px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 100;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85);
+  align-items: center;
+  gap: 10px;
+}
+
+.ambient-singularity-viewport.focused .horizon-theme-quickbar {
+  display: flex;
+}
+
+.horizon-theme-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s, border-color 0.2s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.horizon-theme-dot:hover {
+  transform: scale(1.4);
+  border-color: #ffffff;
+  box-shadow: 0 0 12px currentColor;
+}

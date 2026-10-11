@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoidLink Profile | Vacuum in the Void — ConnecFriend</title>
+  <meta name="description" content="VoidLink Social Profile - Personal bio, AI Assistant Pets (Cat, Parrot, Eagle, Hoot), Avatar Changer, and 1-3 friend ratings.">
+
+  <!-- Tailwind CSS Framework CDN (Required by Assignment Instruction 6) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            void: {
+              950: '#050508',
+              900: '#0c0c14',
+              850: '#141420',
+              800: '#1c1c2a',
+              700: '#2b2b3d',
+              600: '#3e3e54'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Void Theme Stylesheet -->
+  <link rel="stylesheet" href="css/void-theme.css">
+  <!-- Ultra-realistic Black Hole & Event Horizon Stylesheet -->
+  <link rel="stylesheet" href="css/blackhole.css">
+  <!-- Page Turning Warp Transitions Stylesheet -->
+  <link rel="stylesheet" href="css/transitions.css">
+</head>
+<body class="bg-void-950 text-gray-100 min-h-screen relative flex flex-col">
+
+  <!-- Top Aerospace Navigation Matrix Bar -->
+  <nav class="sticky top-0 z-50 glass-panel border-b border-gray-800/80 px-4 sm:px-8 py-3.5 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- System Logo (Matching User Screenshot) -->
+      <a href="index.html" class="flex items-center gap-3 group" title="VoidLink Cosmic Network">
+        <div class="shiny-blackhole-icon-wrap flex-shrink-0">
+          <div class="shiny-blackhole-vibrating">
+            <span class="shiny-blackhole-corona"></span>
+            <div class="shiny-horizon-void">
+              <span class="shiny-singularity-core"></span>
+            </div>
+            <span class="shiny-photon-pulse"></span>
+          </div>
+        </div>
+        <div>
+          <span class="font-heading text-sm font-bold tracking-wider text-gray-100 block leading-tight group-hover:text-amber-400 transition-colors">
+            VOIDLINK
+          </span>
+          <span class="text-[9px] font-mono tracking-widest text-gray-400 uppercase block font-semibold">
+            ConnecFriend • Social Hub
+          </span>
+        </div>
+      </a>
+
+      <!-- Central Navigation Links (Matching User Screenshot 2) -->
+      <div class="flex items-center gap-1 sm:gap-2">
+        <a href="index.html" class="aesthetic-nav-pill">
+          <i class="fa-solid fa-table-cells-large text-xs"></i>
+          <span>The feed</span>
+        </a>
+        <a href="profile.html" class="aesthetic-nav-pill active">
+          <i class="fa-regular fa-user text-xs"></i>
+          <span>My profile</span>
+        </a>
+        <a href="explore.html" class="aesthetic-nav-pill">
+          <i class="fa-solid fa-user-group text-xs"></i>
+          <span>Connections</span>
+          <span class="aesthetic-nav-badge" data-friends-count-badge>3</span>
+        </a>
+        <a href="messages.html" class="aesthetic-nav-pill">
+          <i class="fa-regular fa-message text-xs"></i>
+          <span>Messages</span>
+        </a>
+      </div>
+
+      <!-- Right Header: Singularity Focus Toggle & Exit (Theme Switcher moved inside Singularity Horizon) -->
+      <div class="flex items-center gap-2.5 right-header-controls ml-4 sm:ml-7">
+        <button id="singularity-focus-toggle" class="px-2.5 py-1.5 rounded-xl bg-void-900 border border-void-border text-gray-300 hover:text-amber-300 hover:border-amber-500/40 transition-all text-xs font-mono flex items-center gap-1.5" title="Toggle Cosmic Horizon View">
+          <i class="fa-solid fa-satellite text-amber-400 animate-pulse"></i>
+          <span class="hidden xl:inline text-[11px]">Singularity</span>
+        </button>
+
+        <a href="login.html" class="p-2 rounded-xl text-gray-500 hover:text-rose-400 hover:bg-void-850 transition-colors text-xs font-mono" title="Power Off / Switch Account">
+          <i class="fa-solid fa-power-off"></i>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Bottom Navigation Bar (Matching Screenshot 2) -->
+  <div class="md:hidden fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-gray-800/80 px-4 py-2 flex justify-around">
+    <a href="index.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-solid fa-table-cells-large text-base"></i>
+      <span>Feed</span>
+    </a>
+    <a href="profile.html" class="text-rose-400 flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-regular fa-user text-base"></i>
+      <span>Profile</span>
+    </a>
+    <a href="explore.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono relative">
+      <i class="fa-solid fa-user-group text-base"></i>
+      <span>Connections</span>
+      <span class="absolute top-0 right-1 w-3.5 h-3.5 rounded-full bg-rose-500 text-[8px] flex items-center justify-center text-white font-bold" data-friends-count-badge>3</span>
+    </a>
+    <a href="messages.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-regular fa-message text-base"></i>
+      <span>Messages</span>
+    </a>
+  </div>
+
+  <!-- Main Profile Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-8 py-8 w-full flex-1 page-fade-in mb-14 md:mb-0 space-y-8">
+
+    <!-- Hero Profile Card (Rubric: Profile 7 Marks) -->
+    <section class="glass-panel rounded-3xl p-6 sm:p-8 border border-white/10 relative overflow-hidden">
+      <!-- Decorative background glow -->
+      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-purple-600/10 filter blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8 relative z-10">
+        
+        <!-- Profile Picture with interactive Avatar Changer Button -->
+        <div class="relative flex-shrink-0 group">
+          <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-[3px] bg-gradient-to-tr from-purple-500 via-amber-400 to-cyan-400 shadow-2xl shadow-purple-950/60">
+            <img id="profile-avatar" src="assets/avatars/tianshu-liu-SBK40fdKbAg-unsplash.jpg" alt="Profile Picture" class="w-full h-full rounded-full object-cover" />
+          </div>
+          <button id="change-avatar-btn" class="absolute inset-0 rounded-full bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-[11px] font-mono gap-1">
+            <i class="fa-solid fa-camera text-base"></i>
+            <span>Change</span>
+          </button>
+          <span class="absolute bottom-1 right-2 w-5 h-5 rounded-full bg-emerald-400 ring-4 ring-black" title="Signal Active"></span>
+        </div>
+
+        <!-- Personal Info & Social Telemetry -->
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <div>
+              <h1 id="profile-name" class="font-heading text-2xl sm:text-3xl font-extrabold text-gray-100 tracking-tight">
+                Void_Fai
+              </h1>
+              <span id="profile-handle" class="text-xs font-mono text-purple-400">@void_fai</span>
+            </div>
+
+            <!-- Profile Action Buttons -->
+            <div class="flex items-center gap-2">
+              <button onclick="const m = document.getElementById('avatar-modal'); m.classList.remove('hidden'); m.classList.add('flex');" class="px-3.5 py-1.5 rounded-xl bg-void-850 hover:bg-void-800 border border-gray-700 text-xs font-mono text-gray-200 hover:text-white transition-colors flex items-center gap-1.5">
+                <i class="fa-solid fa-image text-xs"></i>
+                <span>Change Avatar</span>
+              </button>
+              <button id="edit-profile-btn" class="px-3.5 py-1.5 rounded-xl bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/50 text-xs font-mono text-purple-200 hover:text-white transition-colors flex items-center gap-1.5">
+                <i class="fa-regular fa-pen-to-square text-xs"></i>
+                <span>Edit Profile</span>
+              </button>
+            </div>
+          </div>
+
+          <p id="profile-role" class="text-xs text-amber-300 font-mono mb-2">
+            VoidLink Creator & Social Architect
+          </p>
+
+          <!-- Bio -->
+          <p id="profile-bio" class="text-sm text-gray-200 leading-relaxed max-w-3xl mb-4 font-normal">
+            Building connections beyond the event horizon. Vibes, music, and late-night coding in the void.
+          </p>
+
+          <!-- Social Status Details -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs font-mono">
+            <div class="p-2.5 rounded-xl bg-void-900/80 border border-gray-800">
+              <span class="text-gray-500 block text-[10px] uppercase font-semibold">Location / Hub:</span>
+              <span id="profile-city" class="text-gray-200">Islamabad Matrix</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-void-900/80 border border-gray-800">
+              <span class="text-gray-500 block text-[10px] uppercase font-semibold">Social Status:</span>
+              <span id="profile-status" class="text-cyan-300">Online & connected</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-void-900/80 border border-gray-800">
+              <span class="text-gray-500 block text-[10px] uppercase font-semibold">Network Friends:</span>
+              <span class="text-emerald-400 font-bold"><span id="profile-friends-count">2</span> Connections</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- AI ASSISTANT PET WIDGET (Cat, Parrot, Eagle, Hoot) -->
+      <div id="ai-pet-display-card" class="mt-6 pt-5 border-t border-gray-800/80 p-4 rounded-2xl pet-companion-card">
+        <!-- Rendered via profile.js -->
+      </div>
+    </section>
+
+    <!-- Friends Matrix Section (Rubric: Profile 7 Marks, Rating of Friend 5 Marks) -->
+    <section class="space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h2 class="font-heading text-lg font-bold text-gray-100 tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-users text-amber-400 text-sm"></i>
+            CONNECTED FRIENDS LIST
+          </h2>
+          <p class="text-xs text-gray-400 font-mono">
+            Rate each friend on a scale of 1 to 3 represented by icons: 1: Stupid, 2: Cool, 3: Trustworthy.
+          </p>
+        </div>
+
+        <!-- Rating Legend Explanation -->
+        <div class="flex items-center gap-3 text-[11px] font-mono bg-void-900/90 border border-gray-800 px-3 py-1.5 rounded-xl">
+          <span class="text-gray-400 font-semibold">Rating Legend:</span>
+          <span class="text-rose-400 flex items-center gap-1"><i class="fa-solid fa-face-dizzy"></i> 1: Stupid</span>
+          <span class="text-gray-600">•</span>
+          <span class="text-cyan-400 flex items-center gap-1"><i class="fa-solid fa-glasses"></i> 2: Cool</span>
+          <span class="text-gray-600">•</span>
+          <span class="text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-shield-halved"></i> 3: Trustworthy</span>
+        </div>
+      </div>
+
+      <!-- Friends Grid (Cards with 1-3 Rating System) -->
+      <div id="friends-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Injected via profile.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- AVATAR CHANGER MODAL -->
+  <div id="avatar-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="glass-panel max-w-md w-full rounded-3xl p-6 border border-white/10 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+        <h3 class="font-heading text-sm font-bold text-gray-100">
+          Change Profile Picture / Avatar
+        </h3>
+        <button onclick="document.getElementById('avatar-modal').classList.add('hidden'); document.getElementById('avatar-modal').classList.remove('flex');" class="text-gray-500 hover:text-white text-sm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div>
+        <label class="block text-xs font-mono text-gray-400 mb-2 font-semibold">Select From Curated Avatars:</label>
+        <div class="grid grid-cols-4 gap-2.5 text-center max-h-48 overflow-y-auto pr-1">
+          <div class="avatar-preset-choice cursor-pointer p-1 rounded-2xl hover:bg-white/10 transition-all border border-transparent hover:border-purple-500" data-src="assets/avatars/tianshu-liu-SBK40fdKbAg-unsplash.jpg">
+            <img src="assets/avatars/tianshu-liu-SBK40fdKbAg-unsplash.jpg" alt="Void_Fai" width="48" height="48" style="width:48px;height:48px;max-width:48px;max-height:48px;border-radius:50%;object-fit:cover;" class="w-12 h-12 rounded-full object-cover mx-auto" />
+            <span class="text-[9px] font-mono text-gray-400 mt-1 block truncate">Void_Fai</span>
+          </div>
+          <div class="avatar-preset-choice cursor-pointer p-1 rounded-2xl hover:bg-white/10 transition-all border border-transparent hover:border-purple-500" data-src="assets/avatars/edgar-nKC772R_qog-unsplash.jpg">
+            <img src="assets/avatars/edgar-nKC772R_qog-unsplash.jpg" alt="Hamza" width="48" height="48" style="width:48px;height:48px;max-width:48px;max-height:48px;border-radius:50%;object-fit:cover;" class="w-12 h-12 rounded-full object-cover mx-auto" />
+            <span class="text-[9px] font-mono text-gray-400 mt-1 block truncate">Hamza</span>
+          </div>
+          <div class="avatar-preset-choice cursor-pointer p-1 rounded-2xl hover:bg-white/10 transition-all border border-transparent hover:border-purple-500" data-src="assets/avatars/kar-ming-moo-Q_3WmguWgYg-unsplash.jpg">
+            <img src="assets/avatars/kar-ming-moo-Q_3WmguWgYg-unsplash.jpg" alt="Munawar" width="48" height="48" style="width:48px;height:48px;max-width:48px;max-height:48px;border-radius:50%;object-fit:cover;" class="w-12 h-12 rounded-full object-cover mx-auto" />
+            <span class="text-[9px] font-mono text-gray-400 mt-1 block truncate">Munawar</span>
+          </div>
+          <div class="avatar-preset-choice cursor-pointer p-1 rounded-2xl hover:bg-white/10 transition-all border border-transparent hover:border-purple-500" data-src="assets/avatars/hans-jurgen-mager-qQWV91TTBrE-unsplash.jpg">
+            <img src="assets/avatars/hans-jurgen-mager-qQWV91TTBrE-unsplash.jpg" alt="Obaidullah" width="48" height="48" style="width:48px;height:48px;max-width:48px;max-height:48px;border-radius:50%;object-fit:cover;" class="w-12 h-12 rounded-full object-cover mx-auto" />
+            <span class="text-[9px] font-mono text-gray-400 mt-1 block truncate">Obaidullah</span>
+          </div>
+          <div class="avatar-preset-choice cursor-pointer p-1 rounded-2xl hover:bg-white/10 transition-all border border-transparent hover:border-purple-500" data-src="assets/avatars/kevin-mueller-aeNg4YA41P8-unsplash.jpg">
+            <img src="assets/avatars/kevin-mueller-aeNg4YA41P8-unsplash.jpg" alt="Ayesha" width="48" height="48" style="width:48px;height:48px;max-width:48px;max-height:48px;border-radius:50%;object-fit:cover;" class="w-12 h-12 rounded-full object-cover mx-auto" />
+            <span class="text-[9px] font-mono text-gray-400 mt-1 block truncate">Ayesha</span>
+          </div>
+          <div class="avatar-preset-choice cursor-pointer p-1 rounded-2xl hover:bg-white/10 transition-all border border-transparent hover:border-purple-500" data-src="assets/avatars/v2osk-1Z2niiBPg5A-unsplash.jpg">
+            <img src="assets/avatars/v2osk-1Z2niiBPg5A-unsplash.jpg" alt="Cosmic" width="48" height="48" style="width:48px;height:48px;max-width:48px;max-height:48px;border-radius:50%;object-fit:cover;" class="w-12 h-12 rounded-full object-cover mx-auto" />
+            <span class="text-[9px] font-mono text-gray-400 mt-1 block truncate">Cosmic</span>
+          </div>
+          <div class="avatar-preset-choice cursor-pointer p-1 rounded-2xl hover:bg-white/10 transition-all border border-transparent hover:border-purple-500" data-src="assets/avatars/gary-bendig-6GMq7AGxNbE-unsplash.jpg">
+            <img src="assets/avatars/gary-bendig-6GMq7AGxNbE-unsplash.jpg" alt="Aura" width="48" height="48" style="width:48px;height:48px;max-width:48px;max-height:48px;border-radius:50%;object-fit:cover;" class="w-12 h-12 rounded-full object-cover mx-auto" />
+            <span class="text-[9px] font-mono text-gray-400 mt-1 block truncate">Aura</span>
+          </div>
+          <div class="avatar-preset-choice cursor-pointer p-1 rounded-2xl hover:bg-white/10 transition-all border border-transparent hover:border-purple-500" data-src="assets/avatars/nima-ghazaei-owevGKsGk18-unsplash.jpg">
+            <img src="assets/avatars/nima-ghazaei-owevGKsGk18-unsplash.jpg" alt="Starlight" width="48" height="48" style="width:48px;height:48px;max-width:48px;max-height:48px;border-radius:50%;object-fit:cover;" class="w-12 h-12 rounded-full object-cover mx-auto" />
+            <span class="text-[9px] font-mono text-gray-400 mt-1 block truncate">Starlight</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-2 border-t border-gray-800">
+        <label class="block text-xs font-mono text-gray-400 mb-1.5 font-semibold">Or Paste Image URL:</label>
+        <div class="flex gap-2">
+          <input id="avatar-url-input" type="url" placeholder="https://..." class="flex-1 p-2.5 rounded-xl bg-void-900 border border-gray-800 text-xs text-gray-200 focus:outline-none focus:border-purple-500 font-mono" />
+          <button id="save-avatar-url-btn" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-mono font-bold">Apply</button>
+        </div>
+      </div>
+
+      <div class="pt-2 border-t border-gray-800">
+        <label class="block text-xs font-mono text-gray-400 mb-1.5 font-semibold">Or Upload Local Photo:</label>
+        <input id="avatar-file-input" type="file" accept="image/*" class="w-full text-xs font-mono text-gray-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-mono file:bg-void-850 file:text-purple-300 hover:file:bg-void-800 cursor-pointer" />
+      </div>
+    </div>
+  </div>
+
+  <!-- AI ASSISTANT PET SWITCHER MODAL -->
+  <div id="pet-switcher-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="glass-panel max-w-lg w-full rounded-3xl p-6 border border-white/10 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+        <h3 class="font-heading text-sm font-bold text-gray-100 flex items-center gap-2">
+          <i class="fa-solid fa-paw text-amber-400"></i> Choose Your AI Assistant Companion
+        </h3>
+        <button onclick="document.getElementById('pet-switcher-modal').classList.add('hidden'); document.getElementById('pet-switcher-modal').classList.remove('flex');" class="text-gray-500 hover:text-white text-sm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-gray-400 font-mono leading-relaxed">
+        Select a companion to assist your profile with trends, alerts, and wisdom:
+      </p>
+
+      <div class="grid grid-cols-2 gap-3">
+        <!-- 1. Cat -->
+        <button onclick="selectPetPreset('cat')" class="p-3.5 rounded-2xl bg-void-900 border border-gray-800 hover:border-purple-500/60 hover:bg-void-850 transition-all text-left group">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="text-2xl">🐱</span>
+            <div>
+              <div class="text-xs font-bold text-gray-100 group-hover:text-purple-300">Shadow Nova</div>
+              <div class="text-[10px] text-gray-500 font-mono">Cyber Feline AI</div>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 font-mono">Special: Stealth & Trend Detector</p>
+        </button>
+
+        <!-- 2. Parrot -->
+        <button onclick="selectPetPreset('parrot')" class="p-3.5 rounded-2xl bg-void-900 border border-gray-800 hover:border-amber-500/60 hover:bg-void-850 transition-all text-left group">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="text-2xl">🦜</span>
+            <div>
+              <div class="text-xs font-bold text-gray-100 group-hover:text-amber-300">Prism Echo</div>
+              <div class="text-[10px] text-gray-500 font-mono">Chromatic Parrot AI</div>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 font-mono">Special: Voice Synthesizer</p>
+        </button>
+
+        <!-- 3. Eagle -->
+        <button onclick="selectPetPreset('eagle')" class="p-3.5 rounded-2xl bg-void-900 border border-gray-800 hover:border-cyan-500/60 hover:bg-void-850 transition-all text-left group">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="text-2xl">🦅</span>
+            <div>
+              <div class="text-xs font-bold text-gray-100 group-hover:text-cyan-300">Aero Talon</div>
+              <div class="text-[10px] text-gray-500 font-mono">Vanguard Eagle AI</div>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 font-mono">Special: High-Altitude Network Radar</p>
+        </button>
+
+        <!-- 4. Hoot Owl -->
+        <button onclick="selectPetPreset('hoot')" class="p-3.5 rounded-2xl bg-void-900 border border-gray-800 hover:border-emerald-500/60 hover:bg-void-850 transition-all text-left group">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="text-2xl">🦉</span>
+            <div>
+              <div class="text-xs font-bold text-gray-100 group-hover:text-emerald-300">Chronos Hoot</div>
+              <div class="text-[10px] text-gray-500 font-mono">Singularity Owl AI</div>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 font-mono">Special: Deep Logic & Archive Oracle</p>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT PROFILE MODAL DIALOG (Complete Profile Customizer: Name, @ Handle, Role, Location/Hub, Status, Bio) -->
+  <div id="edit-profile-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="glass-panel max-w-lg w-full rounded-3xl p-6 border border-white/10 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+        <h3 class="font-heading text-sm font-bold text-gray-100 flex items-center gap-2">
+          <i class="fa-solid fa-user-pen text-amber-400"></i> Edit Profile Telemetry
+        </h3>
+        <button id="close-profile-modal-btn" class="text-gray-500 hover:text-white text-sm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-gray-400 font-mono">
+        Update your Void identity matrix. Changes will sync immediately across the VoidLink network.
+      </p>
+
+      <form id="edit-profile-form" class="space-y-3.5 text-xs font-mono">
+        <!-- 1. Full Name -->
+        <div>
+          <label class="block text-gray-400 mb-1 text-[11px] font-semibold uppercase">Call-Sign / Full Name:</label>
+          <input id="edit-profile-name-input" type="text" required placeholder="e.g. Void_Fai" class="w-full p-2.5 rounded-xl bg-void-900 border border-gray-800 text-gray-100 focus:outline-none focus:border-purple-500" />
+        </div>
+
+        <!-- 2. @ Handle -->
+        <div>
+          <label class="block text-gray-400 mb-1 text-[11px] font-semibold uppercase">Quantum @ Handle:</label>
+          <div class="relative flex items-center">
+            <span class="absolute left-3 text-purple-400 font-bold">@</span>
+            <input id="edit-profile-handle-input" type="text" required placeholder="void_fai" class="w-full pl-7 pr-3 py-2.5 rounded-xl bg-void-900 border border-gray-800 text-purple-300 focus:outline-none focus:border-purple-500" />
+          </div>
+        </div>
+
+        <!-- 3. Social Role / Title -->
+        <div>
+          <label class="block text-gray-400 mb-1 text-[11px] font-semibold uppercase">Role / Matrix Title:</label>
+          <input id="edit-profile-role-input" type="text" placeholder="e.g. VoidLink Creator & Social Architect" class="w-full p-2.5 rounded-xl bg-void-900 border border-gray-800 text-amber-300 focus:outline-none focus:border-purple-500" />
+        </div>
+
+        <!-- 4. Location / Hub -->
+        <div>
+          <label class="block text-gray-400 mb-1 text-[11px] font-semibold uppercase">Location / Sector Hub:</label>
+          <input id="edit-profile-city-input" type="text" placeholder="e.g. Islamabad Matrix" class="w-full p-2.5 rounded-xl bg-void-900 border border-gray-800 text-gray-200 focus:outline-none focus:border-purple-500" />
+        </div>
+
+        <!-- 5. Social Status -->
+        <div>
+          <label class="block text-gray-400 mb-1 text-[11px] font-semibold uppercase">Social Status Telemetry:</label>
+          <input id="edit-profile-status-input" type="text" placeholder="e.g. Online & connected" class="w-full p-2.5 rounded-xl bg-void-900 border border-gray-800 text-cyan-300 focus:outline-none focus:border-purple-500" />
+        </div>
+
+        <!-- 6. Social Bio -->
+        <div>
+          <label class="block text-gray-400 mb-1 text-[11px] font-semibold uppercase">Personal Bio & Manifest:</label>
+          <textarea id="edit-profile-bio-input" rows="3" placeholder="Building connections beyond the event horizon..." class="w-full p-2.5 rounded-xl bg-void-900 border border-gray-800 text-gray-200 focus:outline-none focus:border-purple-500 resize-none font-sans text-xs"></textarea>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2 border-t border-gray-800">
+          <button type="button" id="cancel-profile-modal-btn" class="px-4 py-2 rounded-xl bg-void-850 hover:bg-void-800 text-xs font-mono text-gray-400">
+            Cancel
+          </button>
+          <button type="submit" id="save-profile-btn" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-mono font-bold shadow-md shadow-purple-950/50 flex items-center gap-1.5">
+            <i class="fa-solid fa-check"></i> Save Profile
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- State Store -->
+  <script src="js/state.js"></script>
+  <!-- 10 Cosmic Themes Engine -->
+  <script src="js/theme.js"></script>
+  <!-- Black Hole & Orbiting Satellite Controller (Picture 1 inside app all the time) -->
+  <script src="js/blackhole-stage.js"></script>
+  <!-- Quantum Transitions -->
+  <script src="js/transitions.js"></script>
+  <!-- Profile Engine -->
+  <script src="js/profile.js"></script>
+</body>
+</html>

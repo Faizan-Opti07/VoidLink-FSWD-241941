@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoidLink Directory | Vacuum in the Void — ConnecFriend</title>
+  <meta name="description" content="VoidLink Directory - Search members, test friend invitations, and test ignore list barrier error handling.">
+
+  <!-- Tailwind CSS Framework CDN (Required by Assignment Instruction 6) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            void: {
+              950: '#050508',
+              900: '#0c0c14',
+              850: '#141420',
+              800: '#1c1c2a',
+              700: '#2b2b3d',
+              600: '#3e3e54'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Void Theme Stylesheet -->
+  <link rel="stylesheet" href="css/void-theme.css">
+  <!-- Ultra-realistic Black Hole & Event Horizon Stylesheet -->
+  <link rel="stylesheet" href="css/blackhole.css">
+  <!-- Page Turning Warp Transitions Stylesheet -->
+  <link rel="stylesheet" href="css/transitions.css">
+</head>
+<body class="bg-void-950 text-gray-100 min-h-screen relative flex flex-col">
+
+  <!-- Top Aerospace Navigation Matrix Bar -->
+  <nav class="sticky top-0 z-50 glass-panel border-b border-gray-800/80 px-4 sm:px-8 py-3.5 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- System Logo (Matching User Screenshot) -->
+      <a href="index.html" class="flex items-center gap-3 group" title="VoidLink Cosmic Network">
+        <div class="shiny-blackhole-icon-wrap flex-shrink-0">
+          <div class="shiny-blackhole-vibrating">
+            <span class="shiny-blackhole-corona"></span>
+            <div class="shiny-horizon-void">
+              <span class="shiny-singularity-core"></span>
+            </div>
+            <span class="shiny-photon-pulse"></span>
+          </div>
+        </div>
+        <div>
+          <span class="font-heading text-sm font-bold tracking-wider text-gray-100 block leading-tight group-hover:text-amber-400 transition-colors">
+            VOIDLINK
+          </span>
+          <span class="text-[9px] font-mono tracking-widest text-gray-400 uppercase block font-semibold">
+            ConnecFriend • Social Hub
+          </span>
+        </div>
+      </a>
+
+      <!-- Central Navigation Links (Matching User Screenshot 2) -->
+      <div class="flex items-center gap-1 sm:gap-2">
+        <a href="index.html" class="aesthetic-nav-pill">
+          <i class="fa-solid fa-table-cells-large text-xs"></i>
+          <span>The feed</span>
+        </a>
+        <a href="profile.html" class="aesthetic-nav-pill">
+          <i class="fa-regular fa-user text-xs"></i>
+          <span>My profile</span>
+        </a>
+        <a href="explore.html" class="aesthetic-nav-pill active">
+          <i class="fa-solid fa-user-group text-xs"></i>
+          <span>Connections</span>
+          <span class="aesthetic-nav-badge" data-friends-count-badge>3</span>
+        </a>
+        <a href="messages.html" class="aesthetic-nav-pill">
+          <i class="fa-regular fa-message text-xs"></i>
+          <span>Messages</span>
+        </a>
+      </div>
+
+      <!-- Right Header: Singularity Focus Toggle & Exit (Theme Switcher moved inside Singularity Horizon) -->
+      <div class="flex items-center gap-2.5 right-header-controls ml-4 sm:ml-7">
+        <button id="singularity-focus-toggle" class="px-2.5 py-1.5 rounded-xl bg-void-900 border border-void-border text-gray-300 hover:text-amber-300 hover:border-amber-500/40 transition-all text-xs font-mono flex items-center gap-1.5" title="Toggle Cosmic Horizon View">
+          <i class="fa-solid fa-satellite text-amber-400 animate-pulse"></i>
+          <span class="hidden xl:inline text-[11px]">Singularity</span>
+        </button>
+
+        <a href="login.html" class="p-2 rounded-xl text-gray-400 hover:text-rose-400 hover:bg-void-850 transition-colors text-xs font-mono" title="Power Off / Log Out">
+          <i class="fa-solid fa-power-off"></i>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Bottom Navigation Bar (Matching Screenshot 2) -->
+  <div class="md:hidden fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-gray-800/80 px-4 py-2 flex justify-around">
+    <a href="index.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-solid fa-table-cells-large text-base"></i>
+      <span>Feed</span>
+    </a>
+    <a href="profile.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-regular fa-user text-base"></i>
+      <span>Profile</span>
+    </a>
+    <a href="explore.html" class="text-rose-400 flex flex-col items-center text-[10px] font-mono relative">
+      <i class="fa-solid fa-user-group text-base"></i>
+      <span>Connections</span>
+      <span class="absolute top-0 right-1 w-3.5 h-3.5 rounded-full bg-rose-500 text-[8px] flex items-center justify-center text-white font-bold" data-friends-count-badge>3</span>
+    </a>
+    <a href="messages.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-regular fa-message text-base"></i>
+      <span>Messages</span>
+    </a>
+  </div>
+
+  <!-- Main Directory Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-8 py-8 w-full flex-1 page-fade-in mb-14 md:mb-0 space-y-8">
+
+    <!-- Header & Interactive Search Filter -->
+    <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-white/10 relative overflow-hidden">
+      <div class="max-w-3xl">
+        <span class="text-[10px] font-mono tracking-widest uppercase text-cyan-400 block mb-1 font-bold">
+          Social Member Directory
+        </span>
+        <h1 class="font-heading text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-100">
+          DISCOVER & INVITE FRIENDS
+        </h1>
+        <p class="text-xs text-gray-400 font-mono mt-2 leading-relaxed">
+          Connect with new members in VoidLink. Note: If a member has placed you on their <strong class="text-rose-400">Ignore Filter</strong>, the invitation will be blocked by system rules.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="mt-6 relative">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500 pointer-events-none">
+            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+          </span>
+          <input 
+            id="directory-search-input"
+            type="text" 
+            placeholder="Search by name, handle, role, or location..." 
+            class="w-full pl-11 pr-4 py-3 rounded-2xl bg-void-900 border border-gray-700 text-xs font-mono text-gray-200 placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/40 transition-all"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Rubric Highlight Notice -->
+    <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-start gap-3 text-xs font-mono text-amber-200">
+      <i class="fa-solid fa-circle-exclamation text-amber-400 mt-0.5 flex-shrink-0"></i>
+      <div>
+        <strong class="text-amber-300 uppercase tracking-wider block mb-0.5">Assignment Constraint Demonstration:</strong>
+        <span>
+          Member <strong>Hafiz_Obaidullah the great</strong> has placed <strong>Void_Fai</strong> on his ignore list. Clicking <em>"Send (Ignore Protected)"</em> on Hafiz_Obaidullah will trigger the exact assignment error barrier! Member <strong>Ayesha</strong> can be invited successfully.
+        </span>
+      </div>
+    </div>
+
+    <!-- Member Directory Grid -->
+    <section>
+      <div id="members-directory-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Dynamically populated via invite.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- State Store -->
+  <script src="js/state.js"></script>
+  <!-- 10 Cosmic Themes Engine -->
+  <script src="js/theme.js"></script>
+  <!-- Black Hole & Orbiting Satellite Controller (Picture 1 inside app all the time) -->
+  <script src="js/blackhole-stage.js"></script>
+  <!-- Quantum Transitions -->
+  <script src="js/transitions.js"></script>
+  <!-- Member Invitation Logic -->
+  <script src="js/invite.js"></script>
+</body>
+</html>

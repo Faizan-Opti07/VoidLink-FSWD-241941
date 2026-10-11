@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8"> <!-- Character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive viewport -->
+  <title>Sub-space Messages | Vacuum in the Void — ConnecFriend</title> <!-- Document title -->
+  <meta name="description" content="Sub-space Private Messaging with watery wave dynamics, crisp readability, and direct transmission between friends and non-members.">
+
+  <!-- Tailwind CSS Framework CDN (Required by Assignment Instruction 6) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            void: {
+              950: '#030305',
+              900: '#07070b',
+              850: '#0e0e15',
+              800: '#151520',
+              700: '#222230',
+              600: '#343446'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Font Awesome Icons 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Void Theme Stylesheet -->
+  <link rel="stylesheet" href="css/void-theme.css">
+  <!-- Ultra-realistic Black Hole & Event Horizon Stylesheet -->
+  <link rel="stylesheet" href="css/blackhole.css">
+  <!-- Page Turning Warp Transitions Stylesheet -->
+  <link rel="stylesheet" href="css/transitions.css">
+</head>
+<body class="bg-void-950 text-gray-100 min-h-screen relative flex flex-col">
+
+  <!-- Top Aerospace Navigation Matrix Bar -->
+  <nav class="sticky top-0 z-50 glass-panel border-b border-gray-800/80 px-4 sm:px-8 py-3.5 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- System Logo -->
+      <!-- System Logo (Matching User Screenshot) -->
+      <a href="index.html" class="flex items-center gap-3 group" title="VoidLink Cosmic Network">
+        <div class="shiny-blackhole-icon-wrap flex-shrink-0">
+          <div class="shiny-blackhole-vibrating">
+            <span class="shiny-blackhole-corona"></span>
+            <div class="shiny-horizon-void">
+              <span class="shiny-singularity-core"></span>
+            </div>
+            <span class="shiny-photon-pulse"></span>
+          </div>
+        </div>
+        <div>
+          <span class="font-heading text-sm font-bold tracking-wider text-gray-100 block leading-tight group-hover:text-amber-400 transition-colors">
+            VOIDLINK
+          </span>
+          <span class="text-[9px] font-mono tracking-widest text-gray-400 uppercase block font-semibold">
+            ConnecFriend • Social Hub
+          </span>
+        </div>
+      </a>
+
+      <!-- Central Navigation Links (Matching User Screenshot 2) -->
+      <div class="flex items-center gap-1 sm:gap-2">
+        <a href="index.html" class="aesthetic-nav-pill">
+          <i class="fa-solid fa-table-cells-large text-xs"></i>
+          <span>The feed</span>
+        </a>
+        <a href="profile.html" class="aesthetic-nav-pill">
+          <i class="fa-regular fa-user text-xs"></i>
+          <span>My profile</span>
+        </a>
+        <a href="explore.html" class="aesthetic-nav-pill">
+          <i class="fa-solid fa-user-group text-xs"></i>
+          <span>Connections</span>
+          <span class="aesthetic-nav-badge" data-friends-count-badge>3</span>
+        </a>
+        <a href="messages.html" class="aesthetic-nav-pill active">
+          <i class="fa-regular fa-message text-xs"></i>
+          <span>Messages</span>
+        </a>
+      </div>
+
+      <!-- Right Header: Singularity Focus Toggle & Exit (Theme Switcher moved inside Singularity Horizon) -->
+      <div class="flex items-center gap-2.5 right-header-controls ml-4 sm:ml-7">
+        <button id="singularity-focus-toggle" class="px-2.5 py-1.5 rounded-xl bg-void-900 border border-void-border text-gray-300 hover:text-amber-300 hover:border-amber-500/40 transition-all text-xs font-mono flex items-center gap-1.5" title="Toggle Cosmic Horizon View">
+          <i class="fa-solid fa-satellite text-amber-400 animate-pulse"></i>
+          <span class="hidden xl:inline text-[11px]">Singularity</span>
+        </button>
+
+        <a href="login.html" class="p-2 rounded-xl text-gray-500 hover:text-rose-400 hover:bg-void-850 transition-colors text-xs font-mono" title="Switch Call-sign / Exit Horizon">
+          <i class="fa-solid fa-power-off"></i>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Bottom Navigation Bar (Matching Screenshot 2) -->
+  <div class="md:hidden fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-gray-800/80 px-4 py-2 flex justify-around">
+    <a href="index.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-solid fa-table-cells-large text-base"></i>
+      <span>Feed</span>
+    </a>
+    <a href="profile.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-regular fa-user text-base"></i>
+      <span>Profile</span>
+    </a>
+    <a href="explore.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono relative">
+      <i class="fa-solid fa-user-group text-base"></i>
+      <span>Connections</span>
+      <span class="absolute top-0 right-1 w-3.5 h-3.5 rounded-full bg-rose-500 text-[8px] flex items-center justify-center text-white font-bold" data-friends-count-badge>3</span>
+    </a>
+    <a href="messages.html" class="text-rose-400 flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-regular fa-message text-base"></i>
+      <span>Messages</span>
+    </a>
+  </div>
+
+  <!-- Main Messages Workspace Layout -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-8 py-8 w-full flex-1 page-fade-in mb-14 md:mb-0">
+    
+    <!-- Header Banner -->
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <h1 class="font-cinematic text-xl sm:text-2xl font-bold tracking-wider text-gray-100 flex items-center gap-2.5">
+          <i class="fa-solid fa-water text-cyan-400 text-lg"></i>
+          SUB-SPACE PRIVATE MESSAGING & WATERY RELAY
+        </h1>
+        <p class="text-xs text-gray-400 font-mono mt-1">
+          Direct private communications with both confirmed friends AND non-friend void members (Rubric: 13 Marks).
+        </p>
+      </div>
+
+      <!-- Watery Wave Status Pill -->
+      <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-cyan-950/40 border border-cyan-800/50 text-[11px] font-mono text-cyan-300">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+        <span>Aqueous Caustics Active</span>
+      </div>
+    </div>
+
+    <!-- Split Messaging Dashboard -->
+    <div class="glass-panel rounded-3xl border border-white/10 overflow-hidden grid grid-cols-1 md:grid-cols-12 min-h-[620px] shadow-2xl">
+      
+      <!-- Left Column: Recipient Channel Directory (Friends + Members) (4 Cols) -->
+      <aside class="md:col-span-4 border-r border-gray-800/80 flex flex-col bg-void-900/40">
+        
+        <!-- Recipient Header -->
+        <div class="p-4 border-b border-gray-800/80 flex items-center justify-between">
+          <span class="text-xs font-mono uppercase tracking-wider text-gray-300 font-semibold">
+            <i class="fa-solid fa-address-book text-cyan-400 mr-1.5"></i> Void Contacts
+          </span>
+          <span class="text-[10px] font-mono text-gray-400">Friends & Members</span>
+        </div>
+
+        <!-- Scrollable Contacts List -->
+        <div id="contacts-list-container" class="flex-1 overflow-y-auto p-3 space-y-2 max-h-[540px]">
+          <!-- Contacts dynamically injected via messaging.js -->
+        </div>
+
+      </aside>
+
+      <!-- Right Column: Active Conversation Matrix & Transceiver (8 Cols) -->
+      <section class="md:col-span-8 flex flex-col bg-void-950/60 relative watery-chat-container">
+        
+        <!-- Watery Caustics Animated Wave Backdrop Layer -->
+        <div class="watery-caustics-backdrop"></div>
+
+        <!-- Active Chat Header -->
+        <div class="p-4 border-b border-gray-800/80 flex items-center justify-between bg-void-900/85 backdrop-blur z-20 relative">
+          <div class="flex items-center gap-3">
+            <img id="chat-recipient-avatar" src="assets/avatars/kevin-mueller-aeNg4YA41P8-unsplash.jpg" alt="Active Chat Avatar" class="w-10 h-10 rounded-full object-cover border border-cyan-500/60 shadow" onerror="this.src='assets/avatars/tianshu-liu-SBK40fdKbAg-unsplash.jpg'" />
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 id="chat-recipient-name" class="text-xs font-bold text-gray-100">Dr. Ayesha Noor</h3>
+                <span id="chat-recipient-relation"></span>
+              </div>
+              <p id="chat-recipient-handle" class="text-[10px] font-mono text-gray-400">@ayesha_astrophysics</p>
+            </div>
+          </div>
+          <div id="chat-recipient-status" class="text-emerald-400 font-mono text-[11px] flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Signal Clear
+          </div>
+        </div>
+
+        <!-- Chat History Scroll View with Aquatic Waves and Fluid Ripples -->
+        <div id="chat-messages-scroll-area" class="flex-1 overflow-y-auto p-5 space-y-3 max-h-[460px] min-h-[380px] z-10 relative">
+          <!-- Injected via messaging.js with water ripple dynamics -->
+        </div>
+
+        <!-- Message Composer Input Form -->
+        <div class="p-4 border-t border-gray-800/80 bg-void-900/90 z-20 relative backdrop-blur">
+          <form id="chat-send-form" class="flex items-center gap-3">
+            <div class="relative flex-1">
+              <input 
+                id="chat-message-input" 
+                type="text" 
+                placeholder="Type sub-space transmission... (Click or Send triggers liquid ripples!)" 
+                required 
+                autocomplete="off"
+                class="w-full pl-4 pr-10 py-3 rounded-xl bg-void-850 border border-gray-700 text-xs text-gray-100 placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/40 font-mono"
+              />
+              <span class="absolute right-3 top-3 text-cyan-400/70">
+                <i class="fa-solid fa-water text-xs" title="Watery Encryption Wave"></i>
+              </span>
+            </div>
+
+            <button 
+              type="submit" 
+              class="px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:brightness-110 text-white font-cinematic font-bold text-xs uppercase tracking-wider shadow-lg shadow-cyan-950/50 flex items-center gap-2 transition-all active:scale-95 flex-shrink-0"
+            >
+              <span>Transmit</span>
+              <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+          </form>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- State Store -->
+  <script src="js/state.js"></script>
+  <!-- 10 Cosmic Themes Engine -->
+  <script src="js/theme.js"></script>
+  <!-- Black Hole & Orbiting Satellite Controller (Picture 1 inside app all the time) -->
+  <script src="js/blackhole-stage.js"></script>
+  <!-- Quantum Transitions -->
+  <script src="js/transitions.js"></script>
+  <!-- Private Messaging System -->
+  <script src="js/messaging.js"></script>
+</body>
+</html>

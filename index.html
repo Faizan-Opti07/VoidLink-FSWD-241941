@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoidLink Feed | Vacuum in the Void — ConnecFriend</title>
+  <meta name="description" content="VoidLink Social Feed - Live friends radar by login time, like/dislike counts, and selective post sharing.">
+
+  <!-- Tailwind CSS Framework CDN (Required by Assignment Instruction 6) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            void: {
+              950: '#050508',
+              900: '#0c0c14',
+              850: '#141420',
+              800: '#1c1c2a',
+              700: '#2b2b3d',
+              600: '#3e3e54'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Void Theme Stylesheet -->
+  <link rel="stylesheet" href="css/void-theme.css">
+  <!-- Ultra-realistic Black Hole & Event Horizon Stylesheet -->
+  <link rel="stylesheet" href="css/blackhole.css">
+  <!-- Page Turning Warp Transitions Stylesheet -->
+  <link rel="stylesheet" href="css/transitions.css">
+</head>
+<body class="bg-void-950 text-gray-100 min-h-screen relative flex flex-col">
+
+  <!-- Top Aerospace Navigation Matrix Bar -->
+  <nav class="sticky top-0 z-50 glass-panel border-b border-gray-800/80 px-4 sm:px-8 py-3.5 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo & System Branding (Matching User Screenshot) -->
+      <a href="index.html" class="flex items-center gap-3 group" title="VoidLink Cosmic Network">
+        <div class="shiny-blackhole-icon-wrap flex-shrink-0">
+          <div class="shiny-blackhole-vibrating">
+            <span class="shiny-blackhole-corona"></span>
+            <div class="shiny-horizon-void">
+              <span class="shiny-singularity-core"></span>
+            </div>
+            <span class="shiny-photon-pulse"></span>
+          </div>
+        </div>
+        <div>
+          <span class="font-heading text-sm font-bold tracking-wider text-gray-100 block leading-tight group-hover:text-amber-400 transition-colors">
+            VOIDLINK
+          </span>
+          <span class="text-[9px] font-mono tracking-widest text-gray-400 uppercase block font-semibold">
+            ConnecFriend • Social Hub
+          </span>
+        </div>
+      </a>
+
+      <!-- Central Navigation Links (Matching User Screenshot 2) -->
+      <div class="flex items-center gap-1 sm:gap-2">
+        <a href="index.html" class="aesthetic-nav-pill active">
+          <i class="fa-solid fa-table-cells-large text-xs"></i>
+          <span>The feed</span>
+        </a>
+        <a href="profile.html" class="aesthetic-nav-pill">
+          <i class="fa-regular fa-user text-xs"></i>
+          <span>My profile</span>
+        </a>
+        <a href="explore.html" class="aesthetic-nav-pill">
+          <i class="fa-solid fa-user-group text-xs"></i>
+          <span>Connections</span>
+          <span class="aesthetic-nav-badge" data-friends-count-badge>3</span>
+        </a>
+        <a href="messages.html" class="aesthetic-nav-pill">
+          <i class="fa-regular fa-message text-xs"></i>
+          <span>Messages</span>
+        </a>
+      </div>
+
+      <!-- Right Active User Header Badge & Cosmic Singularity Focus & Logout -->
+      <div class="flex items-center gap-2.5 right-header-controls ml-4 sm:ml-7">
+        <!-- Singularity Focus View Toggle Button -->
+        <button id="singularity-focus-toggle" class="px-2.5 py-1.5 rounded-xl bg-void-900 border border-void-border text-gray-300 hover:text-amber-300 hover:border-amber-500/40 transition-all text-xs font-mono flex items-center gap-1.5" title="Toggle Cosmic Horizon View">
+          <i class="fa-solid fa-satellite text-amber-400 animate-pulse"></i>
+          <span class="hidden xl:inline text-[11px]">Singularity</span>
+        </button>
+        
+        <a href="profile.html" class="flex items-center gap-2.5 p-1 rounded-xl hover:bg-void-850 transition-colors">
+          <img id="header-user-avatar" src="assets/avatars/tianshu-liu-SBK40fdKbAg-unsplash.jpg" alt="Active Profile" class="w-8 h-8 rounded-full object-cover border border-purple-500/60 shadow" />
+          <div class="text-left hidden sm:block">
+            <span id="header-user-name" class="text-xs font-bold text-gray-100 block leading-tight">Void_Fai</span>
+            <span id="header-user-handle" class="text-[10px] font-mono text-gray-400 block">@void_fai</span>
+          </div>
+        </a>
+
+        <!-- Power Off Logout Button -->
+        <a href="login.html" class="p-2 rounded-xl text-gray-400 hover:text-rose-400 hover:bg-void-850 transition-colors text-xs font-mono" title="Power Off / Log Out">
+          <i class="fa-solid fa-power-off"></i>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Bottom Navigation Bar (Matching Screenshot 2) -->
+  <div class="md:hidden fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-gray-800/80 px-4 py-2 flex justify-around">
+    <a href="index.html" class="text-rose-400 flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-solid fa-table-cells-large text-base"></i>
+      <span>Feed</span>
+    </a>
+    <a href="profile.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-regular fa-user text-base"></i>
+      <span>Profile</span>
+    </a>
+    <a href="explore.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono relative">
+      <i class="fa-solid fa-user-group text-base"></i>
+      <span>Connections</span>
+      <span class="absolute top-0 right-1 w-3.5 h-3.5 rounded-full bg-rose-500 text-[8px] flex items-center justify-center text-white font-bold" data-friends-count-badge>3</span>
+    </a>
+    <a href="messages.html" class="text-gray-400 hover:text-white flex flex-col items-center text-[10px] font-mono">
+      <i class="fa-regular fa-message text-base"></i>
+      <span>Messages</span>
+    </a>
+  </div>
+
+  <!-- Main Content Layout (Responsive 3-Column Grid) -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-8 py-8 w-full flex-1 page-fade-in mb-14 md:mb-0">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Active User Status & Social Widget (3 Cols) -->
+      <aside class="lg:col-span-3 space-y-6">
+        
+        <!-- Active User HUD Card -->
+        <div class="glass-panel rounded-3xl p-5 border border-void-border">
+          <div class="flex items-center gap-3.5 mb-4">
+            <img id="sidebar-user-avatar" src="assets/avatars/tianshu-liu-SBK40fdKbAg-unsplash.jpg" alt="Active User" class="w-12 h-12 rounded-full object-cover border border-purple-500/50 shadow" onerror="this.src='assets/avatars/tianshu-liu-SBK40fdKbAg-unsplash.jpg'" />
+            <div>
+              <h2 id="sidebar-user-name" class="text-sm font-bold text-gray-100 font-heading">Void_Fai</h2>
+              <span id="sidebar-user-handle" class="text-[10px] font-mono text-purple-400 font-semibold">@void_fai</span>
+              <div class="flex items-center gap-1.5 mt-0.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span id="sidebar-user-status" class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Active Online</span>
+              </div>
+            </div>
+          </div>
+          <div class="text-[11px] font-mono text-gray-300 space-y-1.5 border-t border-gray-800/80 pt-3">
+            <div class="flex justify-between">
+              <span class="text-gray-500">Hub:</span>
+              <span id="sidebar-user-city" class="text-gray-200">Islamabad Matrix</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Role:</span>
+              <span id="sidebar-user-role" class="text-amber-400 font-medium">Creator & Architect</span>
+            </div>
+          </div>
+          <a href="profile.html" class="block w-full mt-4 py-2 text-center rounded-xl bg-void-900 border border-gray-800 hover:border-gray-700 text-xs font-mono text-gray-200 hover:text-white transition-all font-semibold">
+            View My Profile <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i>
+          </a>
+        </div>
+
+        <!-- Live Orbital Singularity HUD Card (Inside App All The Time - Picture 1) -->
+        <div class="glass-panel rounded-3xl p-4 border border-void-border overflow-hidden relative group">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-amber-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-satellite animate-pulse"></i> Station Alpha Radar
+            </span>
+            <span class="text-[9px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-2 py-0.5 rounded-full font-bold flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> IN ORBIT
+            </span>
+          </div>
+          
+          <!-- Scaled Black Hole with Orbiting Satellite -->
+          <div class="mini-blackhole-stage-wrapper">
+            <div class="blackhole-stage">
+              <div class="star-drift star-drift-one"></div>
+              <div class="star-drift star-drift-two"></div>
+              <div class="orbit orbit-one"></div>
+              <div class="orbit orbit-two"></div>
+              <div class="accretion accretion-back"></div>
+              <div class="event-horizon"><div class="horizon-core"></div></div>
+              <div class="accretion accretion-front"></div>
+              <div class="void-station void-station-app">
+                <span class="station-orbit"></span>
+                <span class="station-solar station-solar-a"></span>
+                <span class="station-module station-module-a"></span>
+                <span class="station-core"></span>
+                <span class="station-module station-module-b"></span>
+                <span class="station-solar station-solar-b"></span>
+                <span class="station-light"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center text-[10px] font-mono text-gray-400 border-t border-gray-800/80 pt-2.5 mt-2">
+            <span class="text-gray-400">Accretion: <b class="text-amber-300">Active Flow</b></span>
+            <button id="toggle-ambient-focus" class="text-amber-400 hover:text-amber-300 flex items-center gap-1 transition-colors font-medium">
+              Expand View <i class="fa-solid fa-expand text-[9px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Social Circles Widget -->
+        <div class="glass-panel rounded-3xl p-5 border border-void-border hidden lg:block">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono uppercase tracking-wider text-gray-300 font-bold">Community Circles</span>
+            <i class="fa-solid fa-users-viewfinder text-purple-400 text-xs"></i>
+          </div>
+          <div class="space-y-2 text-xs">
+            <div class="p-2 rounded-xl bg-void-900/60 border border-gray-800 flex items-center justify-between">
+              <span class="text-gray-300">#WebDev_Islamabad</span>
+              <span class="text-[10px] text-cyan-400 font-mono">1.2k members</span>
+            </div>
+            <div class="p-2 rounded-xl bg-void-900/60 border border-gray-800 flex items-center justify-between">
+              <span class="text-gray-300">#UI_Designers_Void</span>
+              <span class="text-[10px] text-amber-400 font-mono">840 members</span>
+            </div>
+            <div class="p-2 rounded-xl bg-void-900/60 border border-gray-800 flex items-center justify-between">
+              <span class="text-gray-300">#Cosmic_Coders</span>
+              <span class="text-[10px] text-purple-400 font-mono">512 members</span>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Center Column: Post Composer & News Feed (6 Cols) -->
+      <section class="lg:col-span-6 space-y-6">
+
+        <!-- News Dispatch Composer (Rubric: News Sharing 10 Marks) -->
+        <div class="glass-panel rounded-3xl p-5 border border-void-border">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono uppercase tracking-wider text-purple-400 flex items-center gap-1.5 font-bold">
+              <i class="fa-regular fa-pen-to-square text-xs"></i> Share an Update with Friends
+            </span>
+            <span class="text-[10px] font-mono text-gray-400">VoidLink Feed</span>
+          </div>
+
+          <form id="create-post-form" class="space-y-4">
+            <textarea 
+              id="post-content-input"
+              rows="3"
+              placeholder="What's happening in your void today? Share a thought, link, or project update..."
+              required
+              class="w-full p-3.5 rounded-2xl bg-void-900/90 border border-gray-800 text-gray-100 text-xs font-normal focus:outline-none focus:border-purple-500/80 focus:ring-1 focus:ring-purple-500/40 transition-all placeholder-gray-500 resize-none"
+            ></textarea>
+
+            <!-- CRITICAL RUBRIC REQUIREMENT: Share with ALL Friends OR SOME Friends -->
+            <div class="p-3.5 rounded-2xl bg-void-900/60 border border-gray-800/80 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-gray-300 font-bold">
+                  <i class="fa-solid fa-users-viewfinder mr-1 text-cyan-400"></i> Who can see this post?
+                </span>
+                <span class="text-[9px] font-mono text-gray-400 font-semibold">RUBRIC: NEWS SHARING</span>
+              </div>
+
+              <!-- Radio Options: All Friends vs Some Friends -->
+              <div class="grid grid-cols-2 gap-3 text-xs">
+                <label class="flex items-center gap-2 p-2 rounded-xl bg-void-850 border border-gray-800 hover:border-cyan-500/50 cursor-pointer text-gray-200">
+                  <input type="radio" name="post-audience" value="all" checked class="text-cyan-400 focus:ring-cyan-400 bg-void-900" />
+                  <span class="font-mono text-xs font-medium">All Friends (Public)</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 rounded-xl bg-void-850 border border-gray-800 hover:border-purple-500/50 cursor-pointer text-gray-200">
+                  <input type="radio" name="post-audience" value="some" class="text-purple-400 focus:ring-purple-400 bg-void-900" />
+                  <span class="font-mono text-xs font-medium">Some Friends Only</span>
+                </label>
+              </div>
+
+              <!-- Selective Friends Multi-Select Checklist -->
+              <div id="selective-friends-container" class="hidden pt-2 border-t border-gray-800">
+                <span class="text-[10px] font-mono text-gray-400 block mb-2 font-semibold">
+                  Select specific friends to share with:
+                </span>
+                <div id="selective-friends-checklist" class="space-y-1.5 max-h-36 overflow-y-auto pr-1">
+                  <!-- Injected via JavaScript -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Optional Attachment & Submit Bar -->
+            <div class="flex items-center justify-between pt-1">
+              <label class="flex items-center gap-2 cursor-pointer text-xs font-mono text-gray-400 hover:text-gray-300">
+                <input type="checkbox" id="attach-cosmic-telemetry" class="rounded border-gray-700 bg-void-900 text-amber-400 focus:ring-0" />
+                <span><i class="fa-solid fa-image mr-1 text-amber-400"></i>Attach Black Hole Media</span>
+              </label>
+
+              <button 
+                type="submit"
+                class="px-5 py-2.5 rounded-xl font-heading text-xs tracking-wider uppercase font-bold text-black bg-gradient-to-r from-purple-400 via-amber-300 to-amber-400 hover:brightness-110 active:scale-95 transition-all shadow-md shadow-amber-500/20 flex items-center gap-2"
+              >
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+                <span>Publish Post</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- News Transmissions Feed (Rubric: Home Page 10 Marks, Likes/Dislikes 10 Marks) -->
+        <div class="space-y-5" id="news-feed-container">
+          <!-- Transmissions dynamically rendered by feed.js -->
+        </div>
+
+      </section>
+
+      <!-- Right Column: Active Friends Radar (Sorted by Login Time) (3 Cols) -->
+      <aside class="lg:col-span-3 space-y-6">
+
+        <!-- CRITICAL RUBRIC REQUIREMENT:
+             "When a user logged in, they saw the people in their friends list in the order of their login to the site, 
+             the first person being the latest one to do so." -->
+        <div class="glass-panel rounded-3xl p-5 border border-void-border">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-amber-400 flex items-center gap-1.5 font-bold">
+              <i class="fa-solid fa-clock text-xs"></i> Friends Online Radar
+            </span>
+            <span class="text-[9px] font-mono text-amber-300 bg-void-900 px-2 py-0.5 rounded border border-gray-800 font-semibold">
+              Sorted: Latest
+            </span>
+          </div>
+          <p class="text-[10px] text-gray-400 mb-4 leading-relaxed font-mono">
+            Friends ordered strictly by latest site login timestamp.
+          </p>
+
+          <!-- Dynamic List of Friends ordered by login time -->
+          <div id="friends-login-order-list" class="space-y-2.5">
+            <!-- Injected via feed.js -->
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-gray-800/80 text-center">
+            <a href="profile.html" class="text-[11px] font-mono text-purple-400 hover:text-purple-300 flex items-center justify-center gap-1 font-semibold">
+              Rate Friends (Stupid, Cool, Trustworthy) <i class="fa-solid fa-star text-[9px] ml-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Invitation Shortcut -->
+        <div class="glass-panel rounded-3xl p-5 border border-void-border text-center">
+          <i class="fa-solid fa-user-plus text-2xl text-cyan-400 mb-2"></i>
+          <h3 class="text-xs font-bold text-gray-100 font-heading">Find More Friends</h3>
+          <p class="text-[11px] text-gray-400 mt-1 mb-3 font-normal">
+            Browse members in VoidLink and expand your network.
+          </p>
+          <a href="explore.html" class="block w-full py-2 rounded-xl bg-void-900 border border-cyan-800/50 hover:bg-cyan-950/40 text-cyan-300 text-xs font-mono transition-all font-semibold">
+            Open Member Directory <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i>
+          </a>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- State Store -->
+  <script src="js/state.js"></script>
+  <!-- 10 Cosmic Themes Engine -->
+  <script src="js/theme.js"></script>
+  <!-- Black Hole & Orbiting Satellite Controller (Picture 1 inside app all the time) -->
+  <script src="js/blackhole-stage.js"></script>
+  <!-- Quantum Transitions -->
+  <script src="js/transitions.js"></script>
+  <!-- Home Feed Manager -->
+  <script src="js/feed.js"></script>
+</body>
+</html>

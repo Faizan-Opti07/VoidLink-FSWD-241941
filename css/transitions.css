@@ -1,0 +1,450 @@
+/* ==========================================================================
+   VACUUM IN THE VOID - HORIZON BLACK HOLE QUANTUM TRANSITION SYSTEM
+   Requested by user: The exact moving black hole from inside the Horizon!
+   No bursted black hole, no explosion, no blast rays, no white flash.
+   Pure, smooth moving Horizon black hole with relativistic accretion flow,
+   event horizon core, glowing lensing halo, and orbiting Station Alpha.
+   ========================================================================== */
+
+#page-transition-portal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #090914 0%, #040408 60%, #000000 100%);
+  overflow: hidden;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+#page-transition-portal.active-warp {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Container for the Horizon Black Hole Stage */
+.portal-stage-container {
+  position: relative;
+  width: min(92vw, 480px);
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  user-select: none;
+  animation: portalDrift 1.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes portalDrift {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* Ensure #page-transition-portal .blackhole-stage has explicit non-zero width & height */
+#page-transition-portal .blackhole-stage {
+  width: 440px !important;
+  max-width: 90vw !important;
+  height: 360px !important;
+  position: relative !important;
+  display: grid !important;
+  place-items: center !important;
+  margin: 0 auto !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+  user-select: none !important;
+}
+
+/* Gravitational Lensing Halo */
+#page-transition-portal .blackhole-stage::before {
+  content: "";
+  position: absolute;
+  width: 130%;
+  height: 95%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--void-accent, #a855f7) 32%, transparent) 0%,
+    color-mix(in srgb, var(--void-accent, #a855f7) 14%, transparent) 42%,
+    transparent 72%
+  );
+  filter: blur(28px);
+  pointer-events: none;
+  animation: portalCosmicPulse 4s ease-in-out infinite alternate;
+}
+
+#page-transition-portal .blackhole-stage::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 76%;
+  height: 25%;
+  border: 2px solid color-mix(in srgb, var(--void-accent, #a855f7) 75%, transparent);
+  border-radius: 50%;
+  transform: rotate(-18deg) skewX(-24deg);
+  filter: blur(2px);
+  box-shadow: 0 0 25px var(--accent-glow, rgba(168, 85, 247, 0.45));
+  animation: portalLensingFlicker 3.8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes portalCosmicPulse {
+  0% { transform: scale(0.93); opacity: 0.6; }
+  100% { transform: scale(1.08); opacity: 0.95; }
+}
+
+@keyframes portalLensingFlicker {
+  from { opacity: 0.35; transform: rotate(-18deg) skewX(-24deg) scale(0.97); }
+  to { opacity: 0.9; transform: rotate(-18deg) skewX(-24deg) scale(1.04); }
+}
+
+/* Event Horizon Core */
+#page-transition-portal .event-horizon {
+  width: clamp(130px, 17vw, 195px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  background: radial-gradient(circle at 50% 50%, #000000 0 57%, #020204 63%, #08080c 70%, transparent 73%);
+  box-shadow: 
+    0 0 0 2px #020203,
+    0 0 25px 9px #000000,
+    0 0 70px 13px #000000,
+    0 0 105px 16px color-mix(in srgb, var(--void-accent, #a855f7) 35%, transparent);
+  z-index: 3;
+  display: grid;
+  place-items: center;
+}
+
+#page-transition-portal .horizon-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #000000 0 53%, #010102 60%, #000000 70%);
+  box-shadow: 0 0 0 8px #000000, 0 0 18px 8px #000000, inset 0 0 25px #000000;
+}
+
+/* Relativistic Accretion Flow - Revolving glowing energy throwing out light */
+#page-transition-portal .accretion {
+  position: absolute;
+  width: 125%;
+  height: 40%;
+  border-radius: 50%;
+  border: 0;
+  transform: rotate(-17deg) skewX(-20deg);
+  filter: blur(0.6px);
+  mask-image: radial-gradient(ellipse, transparent 0 27%, #000000 32% 48%, transparent 64%);
+  -webkit-mask-image: radial-gradient(ellipse, transparent 0 27%, #000000 32% 48%, transparent 64%);
+  pointer-events: none;
+}
+
+#page-transition-portal .accretion-back {
+  background: conic-gradient(
+    from 10deg,
+    transparent 0 7%,
+    #ffffff 10%,
+    var(--void-accent, #a855f7) 18%,
+    transparent 25% 36%,
+    var(--accent-soft, #fbbf24) 41%,
+    #ffffff 47%,
+    transparent 54% 66%,
+    var(--void-accent, #a855f7) 71%,
+    var(--accent-soft, #fb7185) 81%,
+    transparent 90%
+  );
+  box-shadow: 0 0 25px color-mix(in srgb, var(--void-accent, #a855f7) 85%, transparent), 0 0 55px var(--accent-glow, rgba(168, 85, 247, 0.5));
+  animation: portalAccretionSpin 4s linear infinite;
+  z-index: 2;
+}
+
+#page-transition-portal .accretion-front {
+  width: 115%;
+  height: 33%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 0 8%,
+    #ffffff 12%,
+    var(--void-accent, #a855f7) 22%,
+    transparent 31% 48%,
+    var(--accent-soft, #fbbf24) 55%,
+    var(--void-accent, #a855f7) 63%,
+    transparent 72% 85%,
+    #ffffff 92%,
+    transparent
+  );
+  mask-image: radial-gradient(ellipse, transparent 0 29%, #000000 34% 45%, transparent 59%);
+  -webkit-mask-image: radial-gradient(ellipse, transparent 0 29%, #000000 34% 45%, transparent 59%);
+  filter: blur(0.35px);
+  box-shadow: 0 0 28px var(--accent-glow, rgba(168, 85, 247, 0.65)), 0 0 65px color-mix(in srgb, var(--void-accent, #a855f7) 40%, transparent);
+  animation: portalAccretionCounterSpin 3.2s linear infinite;
+  z-index: 4;
+}
+
+@keyframes portalAccretionSpin {
+  0% { transform: rotate(-17deg) skewX(-20deg); }
+  100% { transform: rotate(343deg) skewX(-20deg); }
+}
+
+@keyframes portalAccretionCounterSpin {
+  0% { transform: rotate(-17deg) skewX(-20deg); }
+  100% { transform: rotate(-377deg) skewX(-20deg); }
+}
+
+/* Orbital Trajectory Lines */
+#page-transition-portal .orbit {
+  position: absolute;
+  border: 1px solid color-mix(in srgb, var(--void-accent, #a855f7) 45%, rgba(200, 160, 130, 0.25));
+  border-radius: 50%;
+  width: 75%;
+  height: 53%;
+  transform: rotate(-22deg);
+  pointer-events: none;
+}
+
+#page-transition-portal .orbit-one {
+  animation: portalAccretionSpin 12s linear infinite;
+}
+
+#page-transition-portal .orbit-two {
+  width: 110%;
+  height: 70%;
+  border-color: color-mix(in srgb, var(--void-accent, #a855f7) 30%, rgba(196, 196, 206, 0.12));
+  transform: rotate(45deg);
+  animation: portalAccretionCounterSpin 15s linear infinite;
+}
+
+/* Cosmic Drift Stars */
+#page-transition-portal .star-drift {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #e8d6c1;
+  box-shadow: 0 0 12px #e8d6c1;
+  animation: portalStarFloat 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+#page-transition-portal .star-drift-one {
+  left: 15%;
+  top: 28%;
+}
+
+#page-transition-portal .star-drift-two {
+  right: 14%;
+  bottom: 27%;
+  animation-delay: 1.4s;
+}
+
+@keyframes portalStarFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+/* Orbiting Space Station Alpha */
+#page-transition-portal .void-station {
+  position: absolute;
+  width: 160px;
+  height: 110px;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 0 13px color-mix(in srgb, var(--void-accent, #a855f7) 50%, transparent));
+  animation: portalStationDrift 7s ease-in-out infinite;
+}
+
+#page-transition-portal .void-station-app {
+  right: 2%;
+  top: 8%;
+  transform: scale(0.88);
+}
+
+@keyframes portalStationDrift {
+  0%, 100% { transform: translate(0, 0) rotate(-2deg); }
+  50% { transform: translate(8px, -12px) rotate(3deg); }
+}
+
+#page-transition-portal .station-orbit {
+  position: absolute;
+  inset: 8% 1%;
+  border: 1px solid color-mix(in srgb, var(--void-accent, #a855f7) 55%, transparent);
+  border-radius: 50%;
+  transform: rotate(-24deg);
+  animation: portalStationOrbit 8s linear infinite;
+}
+
+@keyframes portalStationOrbit {
+  to { transform: rotate(336deg); }
+}
+
+#page-transition-portal .station-core {
+  position: absolute;
+  left: 42%;
+  top: 39%;
+  width: 24%;
+  height: 22%;
+  border-radius: 35%;
+  background: linear-gradient(135deg, #dfe9f5, #69798f 45%, #252c3c 65%, var(--void-accent, #a855f7));
+  border: 1px solid rgba(244, 244, 255, 0.6);
+  box-shadow: 0 0 14px var(--accent-glow, rgba(168, 85, 247, 0.45));
+}
+
+#page-transition-portal .station-module {
+  position: absolute;
+  top: 41%;
+  width: 19%;
+  height: 18%;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #b6c7d9, #35445a 48%, #111722);
+  border: 1px solid rgba(198, 210, 227, 0.65);
+}
+
+#page-transition-portal .station-module-a {
+  left: 24%;
+}
+
+#page-transition-portal .station-module-b {
+  right: 23%;
+}
+
+#page-transition-portal .station-solar {
+  position: absolute;
+  top: 31%;
+  width: 22%;
+  height: 35%;
+  background: repeating-linear-gradient(90deg, #243d70 0 5px, #7c9ac8 6px 7px, #18294c 8px 10px);
+  border: 1px solid #8ea9df;
+  box-shadow: inset 0 0 8px rgba(107, 156, 255, 0.35);
+}
+
+#page-transition-portal .station-solar-a {
+  left: 0;
+  transform: skewY(-12deg);
+}
+
+#page-transition-portal .station-solar-b {
+  right: 0;
+  transform: skewY(12deg);
+}
+
+#page-transition-portal .station-light {
+  position: absolute;
+  left: 49%;
+  top: 44%;
+  width: 5px;
+  height: 5px;
+  background: #f6f7ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 4px #b9d7ff, 0 0 20px var(--accent-glow, rgba(168, 85, 247, 0.45));
+  animation: portalStationBlink 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes portalStationBlink {
+  from { opacity: 0.35; }
+  to { opacity: 1; }
+}
+
+/* Event Horizon Caption */
+#page-transition-portal .hole-caption {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 8px;
+  letter-spacing: 1.6px;
+  color: #a0a2ad;
+  z-index: 5;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+#page-transition-portal .hole-caption i {
+  width: 3px;
+  height: 3px;
+  background: var(--void-accent, #a855f7);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--void-accent, #a855f7);
+}
+
+/* Telemetry Status Caption */
+.portal-status-caption {
+  margin-top: 24px;
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--void-accent, #fbbf24);
+  text-shadow: 0 0 15px var(--accent-glow, rgba(251, 191, 36, 0.6));
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+  text-align: center;
+}
+
+.portal-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--void-accent, #fbbf24);
+  box-shadow: 0 0 10px var(--void-accent, #fbbf24);
+  animation: portalDotPulse 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes portalDotPulse {
+  0% { transform: scale(0.85); opacity: 0.6; }
+  100% { transform: scale(1.25); opacity: 1; box-shadow: 0 0 16px var(--void-accent, #fbbf24); }
+}
+
+/* Page Entry Recombination (Smooth arrival on new page) */
+.page-fade-in {
+  animation: pageRecombine 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageRecombine {
+  0% {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Micro-animations for Interactive Elements */
+.hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(168, 85, 247, 0.15);
+}
+
+.hover-glow {
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.hover-glow:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.2);
+}
