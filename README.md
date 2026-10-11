@@ -46,10 +46,10 @@
 │   └── transitions.js           # Snappy page transitions with Web Audio API sound synthesis
 └── assets/
     ├── avatars/
-    │   ├── commander.jpg        # Void_Fai (Active User)
-    │   ├── marcus.jpg           # Hamza (Friend, Developer)
-    │   ├── elena.jpg            # Munawar (Friend, Designer)
-    │   └── kaelen.jpg           # Hafiz_Obaidullah the great (Outlaw, Ignores Void_Fai)
+    │   ├── 1.jpg        # Void_Fai (Active User)
+    │   ├─2s.jpg           # Hamza (Friend, Developer)
+    │   ├── 3s.jpg            # Munawar (Friend, Designer)
+    │   └── 4.jpg           # Hafiz_Obaidullah the great (Outlaw, Ignores Void_Fai)
     └── images/
         ├── black_hole.jpg       # Accretion capture for post attachments
         └── void_station.jpg     # Station capture for post attachments
